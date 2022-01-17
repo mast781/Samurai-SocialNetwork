@@ -13,6 +13,7 @@ const App = () => {
             {/*<Profile/>*/}
             <div className="app-wrapper-content">
                 <Dialogs />
+                {/*<Profile/>*/}
             </div>
 
         </div>
