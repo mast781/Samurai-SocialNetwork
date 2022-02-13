@@ -5,11 +5,11 @@ import * as stream from "stream";
 
 type DialogItemPropsType = {
     name: string
-    id: string
+    id: number
 }
 
 const DialogItem = (props: DialogItemPropsType) => {
-    let path = '/dialogs/'+ props.id
+    let path = '/dialogs/' + props.id
 
     return (
         <div className={s.dialog + ' ' + s.active}>
@@ -19,6 +19,7 @@ const DialogItem = (props: DialogItemPropsType) => {
 }
 
 type MessagePropsType = {
+    id: number
     message: string
 }
 
@@ -35,23 +36,33 @@ const Dialogs = () => {
         {id: 3, name: 'Sveta'},
         {id: 4, name: 'Sasha'},
         {id: 5, name: 'Victor'},
-        {id: 6, name: 'Valera'},
+        {id: 6, name: 'Valera'}
+    ]
+
+    let messagesData = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How is your it-kamasutra?'},
+        {id: 3, message: 'Yo'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'},
     ]
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name='Dimych' id='1'/>
+                {dialogsData.map(d => <DialogItem  id={d.id} name={d.name}/>)}
+                {/*<DialogItem name='Dimych' id='1'/>
                 <DialogItem name='Andrey' id='2'/>
                 <DialogItem name='Sveta' id='3'/>
                 <DialogItem name='Sasha' id='4'/>
                 <DialogItem name='Victor' id='5'/>
-                <DialogItem name='Valera' id='6'/>
+                <DialogItem name='Valera' id='6'/>*/}
             </div>
             <div className={s.messages}>
-                <Message message='Hi'/>
+                {messagesData.map(m => <Message  id={m.id} message={m.message}/>)}
+                {/*<Message message='Hi'/>
                 <Message message='How is your it-kamasutra?'/>
-                <Message message='Yo'/>
+                <Message message='Yo'/>*/}
             </div>
         </div>
     )
