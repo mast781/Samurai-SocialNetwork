@@ -22,6 +22,7 @@ type AppPropsType = {
     posts: Array<PostPropsType>
 }
 
+
 const App = (props: AppPropsType) => {
     return (
         <BrowserRouter>
