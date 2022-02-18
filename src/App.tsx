@@ -16,14 +16,19 @@ export type DialogPropsType = {
     name: string
 }
 
-type AppPropsType = {
-    dialogs: Array<DialogPropsType>
-    messages: Array<MessagePropsType>
-    posts: Array<PostPropsType>
+type StatePropsType = {
+    appState: {
+        profilePage: {
+            posts: Array<PostPropsType>,
+            dialogs: Array<DialogPropsType>
+        }
+        messagesPage: {
+            messages: Array<MessagePropsType>
+        }
+    }
 }
 
-
-const App = (props: AppPropsType) => {
+const App = (props: StatePropsType) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -31,8 +36,11 @@ const App = (props: AppPropsType) => {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/profile" element={<Profile posts={props.posts}/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
+                        <Route path="/profile" element={<Profile
+                            posts={props.appState.profilePage.posts}/>}/>
+                        <Route path="/dialogs/*"
+                               element={<Dialogs dialogs={props.appState.profilePage.dialogs}
+                                                 messages={props.appState.messagesPage.messages}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/settings" element={<Settings/>}/>
