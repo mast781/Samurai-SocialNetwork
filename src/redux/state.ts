@@ -3,7 +3,9 @@ let state = {
         posts: [
             {id: 1, message: 'Hi, how are you', likesCount: 5},
             {id: 2, message: 'It\'s my first post', likesCount: 15}
-        ],
+        ]
+    },
+    dialogsPage:{
         dialogs: [
             {id: 1, name: 'Dimych'},
             {id: 2, name: 'Andrey'},
@@ -11,9 +13,7 @@ let state = {
             {id: 4, name: 'Sasha'},
             {id: 5, name: 'Victor'},
             {id: 6, name: 'Valera'}
-        ]
-    },
-    messagesPage:{
+        ],
         messages: [
             {id: 1, message: 'Hi'},
             {id: 2, message: 'How is your it-kamasutra?'},

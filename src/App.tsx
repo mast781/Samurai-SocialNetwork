@@ -17,12 +17,12 @@ export type DialogPropsType = {
 }
 
 type StatePropsType = {
-    appState: {
+    state: {
         profilePage: {
-            posts: Array<PostPropsType>,
-            dialogs: Array<DialogPropsType>
+            posts: Array<PostPropsType>
         }
-        messagesPage: {
+        dialogsPage: {
+            dialogs: Array<DialogPropsType>,
             messages: Array<MessagePropsType>
         }
     }
@@ -37,10 +37,9 @@ const App = (props: StatePropsType) => {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/profile" element={<Profile
-                            posts={props.appState.profilePage.posts}/>}/>
+                            posts={props.state.profilePage.posts}/>}/>
                         <Route path="/dialogs/*"
-                               element={<Dialogs dialogs={props.appState.profilePage.dialogs}
-                                                 messages={props.appState.messagesPage.messages}/>}/>
+                               element={<Dialogs state={props.state.dialogsPage}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/settings" element={<Settings/>}/>

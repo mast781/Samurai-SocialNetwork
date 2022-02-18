@@ -9,6 +9,10 @@ type DialogsPropsType = {
     messages: Array<MessagePropsType>
 }
 
+type StateDialogsPropsType = {
+
+}
+
 const Dialogs = (props: DialogsPropsType) => {
 
     let dialogsElements = props.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>)
